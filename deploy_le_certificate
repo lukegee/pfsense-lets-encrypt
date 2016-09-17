@@ -1,0 +1,9 @@
+#!/bin/bash
+mydate=`date +%s`
+fetch https://get.acme.sh -o /root/$mydate\_acme.sh
+sh /root/$mydate\_acme.sh
+my_domain=`cat /root/le-server/conf/acme_mydomain`
+/root/.acme.sh/acme.sh --issue -d $mydomain --webroot /root/le-server/webroot
+cp /root/.acme.sh/$mydomain/fullchain.cer /var/etc/cert.crt
+cp /root/.acme.sh/$mydomain/$mydomain.key  /var/etc/cert.key
+nginx -s reload -c /var/etc/nginx-webConfigurator.conf
