@@ -2,4 +2,4 @@ This script facilitates the automatic download and installation of a Lets Encryp
 
 Script must be placed in /root
 
-le-server/conf/mydomain contains the name of the domain on a single line with no newlines.
+le-server/conf/acme_mydomain contains the name of the domain on a single line with no newlines.
